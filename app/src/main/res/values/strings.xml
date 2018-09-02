@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Aevus</string>
+
+    <string name="hint_username">username</string>
+    <string name="hint_password">password</string>
+
+    <string name="button_login">Log In</string>
+
+    <string name="recover_text">Forgot your details?</string>
+    <string name="signup_text">Don\'t have an account yet? Sign Up.</string>
+</resources>

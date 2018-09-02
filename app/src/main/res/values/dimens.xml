@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="margin_login_button">20dp</dimen>
+    <dimen name="margin_signup_text">50dp</dimen>
+</resources>
