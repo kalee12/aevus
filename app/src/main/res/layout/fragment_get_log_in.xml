@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GetLogInFragment">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LogInActivity">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".15"/>
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".85"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_start_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".3"/>
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_end_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".7"/>
+        <TextView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            app:layout_constraintBottom_toTopOf="@id/get_username"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginBottom="80dp"/>
+        <EditText
+            android:id="@+id/get_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_username"
+            app:layout_constraintBottom_toTopOf="@id/recover"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@id/logo"
+            android:layout_marginBottom="10dp"/>
+        <Button
+            android:id="@+id/recover"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_next"
+            app:layout_constraintTop_toBottomOf="@id/get_username"
+            app:layout_constraintStart_toEndOf="@id/guideline_start_button"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end_button"
+            app:layout_constraintBottom_toTopOf="@id/signup"
+            android:layout_marginBottom="@dimen/margin_signup_text"/>
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/remember_text"
+            app:layout_constraintTop_toBottomOf="@id/recover"
+            app:layout_constraintStart_toEndOf="@id/guideline_start"
+            app:layout_constraintEnd_toStartOf="@id/guideline_end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="goLogIn"/>
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
