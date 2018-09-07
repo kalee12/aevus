@@ -2,5 +2,5 @@
 <resources>
     <dimen name="padding">10dp</dimen>
     <dimen name="margin_login_button">20dp</dimen>
-    <dimen name="margin_signup_text">50dp</dimen>
+    <dimen name="margin_signup_text">40dp</dimen>
 </resources>
