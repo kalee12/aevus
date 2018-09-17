@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">Aevus</string>
 
-    <string name="hint_username">username</string>
+    <string name="hint_email">email</string>
     <string name="hint_password">password</string>
     <string name="hint_password_confirm">confirm password</string>
 
     <string name="button_login">Log In</string>
     <string name="button_signup">Sign Up</string>
     <string name="button_next">Next</string>
+    <string name="button_signout">Sign out</string>
 
     <string name="recover_text">Forgot your details?</string>
     <string name="signup_text">Don\'t have an account yet? Sign up.</string>
@@ -16,4 +17,24 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="cycle_status_active">days since flare started</string>
+    <string name="cycle_status_inactive">days since flare ended</string>
+    <string name="cycle_button_active">flare ended</string>
+    <string name="cycle_button_inactive">flare up</string>
+
+    <string name="location_choose">Choose a location</string>
+    <string name="location_current">Current location</string>
+
+    <string name="weather_location">location</string>
+    <string name="weather_extra_1">Humidity</string>
+    <string name="weather_extra_2">Clouds</string>
+    <string name="weather_extra_3">Winds</string>
+    <string name="weather_extra_4">Rain</string>
+    <string name="weather_extra_5">Sunrise</string>
+    <string name="weather_extra_6">Sunset</string>
+
+    <string name="weather_tip_1">Moisturize</string>
+    <string name="weather_tip_2">It\'s chilly - cover up!</string>
+    <string name="title_activity_location">LocationActivity</string>
 </resources>

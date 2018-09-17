@@ -1,16 +1,28 @@
 package me.kalee.aevus;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.concurrent.Executor;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -21,7 +33,7 @@ import com.google.firebase.auth.FirebaseUser;
  * Use the {@link SignUpFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SignUpFragment extends Fragment {
+public class SignUpFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -72,7 +84,11 @@ public class SignUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false);
+        View v = inflater.inflate(R.layout.fragment_sign_up, container, false);
+
+        Button b = (Button) v.findViewById(R.id.button_signup);
+        b.setOnClickListener(this);
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -106,6 +122,64 @@ public class SignUpFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.button_signup:
+                EditText userEmail = v.getRootView().findViewById(R.id.sign_email);
+                String email = userEmail.getText().toString();
+                EditText userPass = v.getRootView().findViewById(R.id.sign_password);
+                String password = userPass.getText().toString();
+                EditText userConfirm = v.getRootView().findViewById(R.id.sign_confirm);
+                String confirm = userConfirm.getText().toString();
+
+                if (email.isEmpty() ||  password.isEmpty() || confirm.isEmpty()) {
+                    Toast.makeText(getContext(), "Field is missing",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    String passwordCheck = "\\s";
+                    Pattern patt = Pattern.compile(passwordCheck);
+                    Matcher matcher = patt.matcher(password);
+                    if (!matcher.find()) {
+                        Log.v("Sign up", email + " " + password + " " + confirm);
+                        if (password.length() >= 6) {
+                            if (password.equals(confirm)) {
+                                mAuth.createUserWithEmailAndPassword(email, password)
+                                        .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(getContext(), "Welcome!",
+                                                            Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    Toast.makeText(getContext(), "Something went wrong.",
+                                                            Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            } else {
+                                Toast.makeText(getContext(), "Passwords must match.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(getContext(), "Passwords must be at least six characters.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getContext(), "Password cannot have any whitespace",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if (mAuth.getCurrentUser() != null) {
+                    Log.v("hello", mAuth.getCurrentUser().getEmail());
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
+                break;
+        }
     }
 
     /**

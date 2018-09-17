@@ -23,8 +23,14 @@ public class LogInActivity extends AppCompatActivity implements LogInFragment.On
         getSupportActionBar().hide();
         setContentView(R.layout.activity_log_in);
 
-        LogInFragment fragment = new LogInFragment();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
+        LogInFragment fragment = new LogInFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.container, fragment, "Log In");
         ft.commit();
@@ -33,6 +39,12 @@ public class LogInActivity extends AppCompatActivity implements LogInFragment.On
     @Override
     public void onStart() {
         super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
@@ -42,22 +54,22 @@ public class LogInActivity extends AppCompatActivity implements LogInFragment.On
 
     public void goSignUp(View V) {
         SignUpFragment fragment = new SignUpFragment();
-        transaction(fragment);
+        transaction(fragment, "sign up");
     }
 
     public void goLogIn(View V) {
         LogInFragment fragment = new LogInFragment();
-        transaction(fragment);
+        getSupportFragmentManager().popBackStackImmediate();
     }
 
     public void getLogIn(View V) {
         GetLogInFragment fragment = new GetLogInFragment();
-        transaction(fragment);
+        transaction(fragment, "get");
     }
 
-    private void transaction(Fragment fragment) {
+    private void transaction(Fragment fragment, String tag) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container, fragment, "Sign Up");
+        ft.replace(R.id.container, fragment, tag);
         ft.addToBackStack(null);
         ft.commit();
     }

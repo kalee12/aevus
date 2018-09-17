@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CycleFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_cycle_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".15"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_cycle_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".30"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_cycle_star_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".70"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_cycle_margin_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".85"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_cycle_margin_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".10"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_cycle_star_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".25"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_cycle_log_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".55"/>
+
+
+        <ImageView
+            android:id="@+id/cycle_icon_star"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_aevus_star_nfocus"
+            android:tint="@color/bottom_nav_active"
+            app:layout_constraintTop_toBottomOf="@id/g_cycle_margin_h"
+            app:layout_constraintBottom_toBottomOf="@id/g_cycle_star_h"
+            app:layout_constraintLeft_toRightOf="@id/g_cycle_star"
+            app:layout_constraintRight_toLeftOf="@id/g_cycle_star_end"/>
+
+        <TextView
+            android:id="@+id/cycle_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="30dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_cycle_star_h"
+            app:layout_constraintBottom_toTopOf="@id/cycle_status"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/cycle_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cycle_status_inactive"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/cycle_count"
+            app:layout_constraintBottom_toTopOf="@id/cycle_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <Button
+            android:id="@+id/cycle_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cycle_button_inactive"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/cycle_status"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jan 1 - Jan 8"
+            app:layout_constraintTop_toBottomOf="@id/g_cycle_log_h"
+            app:layout_constraintLeft_toRightOf="@id/g_cycle_margin"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8 days"
+            app:layout_constraintTop_toBottomOf="@id/g_cycle_log_h"
+            app:layout_constraintRight_toLeftOf="@id/g_cycle_margin_end"/>
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

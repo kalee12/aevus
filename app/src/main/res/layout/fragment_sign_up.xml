@@ -42,22 +42,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            app:layout_constraintBottom_toTopOf="@id/sign_username"
+            app:layout_constraintBottom_toTopOf="@id/sign_email"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             android:layout_marginBottom="80dp"/>
         <EditText
-            android:id="@+id/sign_username"
+            android:id="@+id/sign_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_username"
+            android:hint="@string/hint_email"
             app:layout_constraintBottom_toTopOf="@id/sign_password"
             app:layout_constraintStart_toEndOf="@id/guideline_sign_start"
             app:layout_constraintEnd_toStartOf="@id/guideline_sign_end"
             app:layout_constraintTop_toBottomOf="@id/sign_logo"
-            android:layout_marginBottom="@dimen/padding"/>
+            android:layout_marginBottom="@dimen/padding"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"/>
         <EditText
             android:id="@+id/sign_password"
             android:layout_width="0dp"
@@ -66,8 +68,9 @@
             app:layout_constraintBottom_toTopOf="@id/sign_confirm"
             app:layout_constraintStart_toEndOf="@id/guideline_sign_start"
             app:layout_constraintEnd_toStartOf="@id/guideline_sign_end"
-            app:layout_constraintTop_toBottomOf="@id/sign_username"
+            app:layout_constraintTop_toBottomOf="@id/sign_email"
             android:layout_marginBottom="@dimen/padding"
+            android:singleLine="true"
             />
         <EditText
             android:id="@+id/sign_confirm"
@@ -78,7 +81,8 @@
             app:layout_constraintStart_toEndOf="@id/guideline_sign_start"
             app:layout_constraintEnd_toStartOf="@id/guideline_sign_end"
             app:layout_constraintBottom_toTopOf="@id/button_signup"
-            android:layout_marginBottom="@dimen/padding"/>
+            android:layout_marginBottom="@dimen/padding"
+            android:singleLine="true"/>
         <Button
             android:id="@+id/button_signup"
             android:layout_width="0dp"

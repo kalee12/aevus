@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".WeatherFragment">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".05"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_indent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".10"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_extra_inner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".35"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_result_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".40"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_result_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".45"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_extra_inner_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".65"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_result_temp_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".70"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_indent_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".90"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_margin_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".95"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_margin_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".05"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_result_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_result_end_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".40"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_result_extra_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".40"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_result_extra_2_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".55"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_result_tip_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".70"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/g_weather_margin_end_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".85"/>
+
+        <ImageView
+            android:id="@+id/weather_location_picker"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:src="@drawable/aevus_location"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_margin_end"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_margin_h"
+            android:tint="@color/bottom_nav_active"/>
+
+        <TextView
+            android:id="@+id/weather_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_location"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_margin_h"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_h"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/aevus_weather_sun"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_indent"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_result_icon"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_h"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_end_h"/>
+
+        <TextView
+            android:id="@+id/weather_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="73"
+            android:textSize="50dp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_temp_desc"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_result_temp"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_result_temp_end"/>
+
+        <TextView
+            android:id="@+id/weather_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\u00B0"
+            android:textSize="50dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_temp_desc"
+            app:layout_constraintLeft_toRightOf="@id/weather_temp"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_result_temp_end"/>
+
+        <TextView
+            android:id="@+id/weather_temp_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Haze"
+            android:textSize="20dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/weather_temp"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_end_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_result_temp"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_result_temp_end"/>
+
+        <TextView
+            android:id="@+id/weather_temp_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="73.4\u00B0"
+            android:textSize="20dp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_temp_low"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_result_temp_end"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_indent_end"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/weather_temp_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="71.6\u00B0"
+            android:textSize="20dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/weather_temp_high"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_end_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_result_temp_end"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_indent_end"/>
+
+        <TextView
+            android:id="@+id/weather_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_extra_1"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_extra_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_humidity_val"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_margin"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_extra_inner"/>
+
+        <TextView
+            android:id="@+id/weather_humidity_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/weather_humidity"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_extra_2_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_margin"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_extra_inner"/>
+
+        <TextView
+            android:id="@+id/weather_clouds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_extra_2"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_extra_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_clouds_val"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_extra_inner"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_extra_inner_end"/>
+
+        <TextView
+            android:id="@+id/weather_clouds_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/weather_clouds"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_extra_2_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_extra_inner"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_extra_inner_end"/>
+
+        <TextView
+            android:id="@+id/weather_winds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_extra_3"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_extra_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_winds_val"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_extra_inner_end"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_margin_end"/>
+
+        <TextView
+            android:id="@+id/weather_winds_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/weather_winds"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_extra_2_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_extra_inner_end"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_margin_end"/>
+
+        <TextView
+            android:id="@+id/weather_rain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_extra_4"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_extra_2_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_rain_val"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_margin"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_extra_inner"/>
+
+        <TextView
+            android:id="@+id/weather_rain_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/weather_rain"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_tip_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_margin"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_extra_inner"/>
+
+        <TextView
+            android:id="@+id/weather_sunrise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_extra_5"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_extra_2_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_sunrise_val"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_extra_inner"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_extra_inner_end"/>
+
+        <TextView
+            android:id="@+id/weather_sunrise_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/weather_sunrise"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_tip_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_extra_inner"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_extra_inner_end"/>
+
+        <TextView
+            android:id="@+id/weather_sunset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_extra_6"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_extra_2_h"
+            app:layout_constraintBottom_toTopOf="@id/weather_sunset_val"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_extra_inner_end"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_margin_end"/>
+
+        <TextView
+            android:id="@+id/weather_sunset_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/weather_sunset"
+            app:layout_constraintBottom_toTopOf="@id/g_weather_result_tip_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_extra_inner_end"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_margin_end"/>
+
+        <TextView
+            android:id="@+id/weather_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_tip_1"
+            android:textSize="16dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/g_weather_result_tip_h"
+            app:layout_constraintBottom_toBottomOf="@id/g_weather_margin_end_h"
+            app:layout_constraintLeft_toRightOf="@id/g_weather_indent"
+            app:layout_constraintRight_toLeftOf="@id/g_weather_indent_end"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
